@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+# Usage : ./unused_objects.sh <bigip.conf>
+#
 
 ltm_params="rule pool node snat-translation snatpool virtual-address policy"
 
