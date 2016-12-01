@@ -13,8 +13,7 @@ sum=0
 
 function search_and_print() {
 
-        #lines=$(cat $in_file | sed -n -e "s/^$1 $2 \([[:print:]]*\) {/\1\\\b/p" | grep -o -E -f - $in_file | sort | uniq -u | sed "s%/Common/%%")
-        lines=$(cat $in_file | sed -n -e "s/^$1 $2 \/Common\/\([[:print:]]*\) {/\\\b\1\\\b/p" | grep -o -E -f - $in_file | sort | uniq -u | sed "s%/Common/%%")
+        lines=$(cat $in_file | sed -n -e "s/^$1 $2 \/[[:print:]]*\/\([[:print:]]*\) {/\\\b\1\\\b/p" | grep -o -E -f - $in_file | sort | uniq -u | sed -e "s%/^[[:print:]]*/%%")
         [[ -n $lines ]] && echo -e "$(echo "$lines" | sed "s/^/$2 /")"
 
         [[ -n $lines ]] && x=$(echo "$lines" | wc -l) || x=0
