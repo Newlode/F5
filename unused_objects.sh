@@ -3,11 +3,11 @@
 # Usage : ./unused_objects.sh <bigip.conf>
 #
 
-ltm_params="rule pool node snat-translation snatpool virtual-address policy"
+ltm_params="node policy pool rule snat-translation snatpool virtual-address"
 
-ltm_profile_args="client-ssl http http-compression one-connect request-log server-ssl smtp stream tcp web-acceleration"
-ltm_monitor_args="http https"
-sys_file_params="ssl-cert ssl-key ifile data-group"
+ltm_profile_args="analytics classification client-ssl dns dns-logging ftp http http-compression one-connect request-log server-ssl smtp stream tcp web-acceleration"
+ltm_monitor_args="http https smtp tcp udp"
+sys_file_params="data-group ifile ssl-cert ssl-key"
 
 in_file="$1"
 stats=""
